@@ -1,13 +1,19 @@
 {
-  "manifest_version": 2,
-  "name": "LookFWD",
-  "version": "0.1",  
-  "content_scripts": [
-  {
-    "matches": [
-      "<all_urls>"
-    ],
-    "js": ["content.js"]
-  }
-]
+	"manifest_version": 2,
+	"name": "LookFWD",
+	"version": "0.1",  
+	"content_scripts": [
+	  {
+	    "matches": ["*://*.youtube.com/"],
+	    "js": ["youtube_home.js"]
+	  },
+	  {
+	  	"matches": ["*://*.youtube.com/*"],
+	  	"js": ["youtube_video.js"]
+	  },
+	  {
+	  	"matches": ["*://*.facebook.com/*"],
+	  	"js": ["facebook.js"]
+	  }
+	]
 }
