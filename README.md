@@ -1,6 +1,6 @@
 #LookFWD
 
-##LookFWD is a chrome extension that prevent procrastination!
+##LookFWD is a chrome extension that prevents procrastination!
 There I was, walking to my desk and ready to get some work done. I go on my laptop and open up tabs to facebook, youtube and gmail. The usual suspects. You can  predict what happened next.
 
 We've all been there. Two days before a deadline, you motivate yourself to work the rest of the day. And somehow you end up watching DIY cooking videos, one after another and scrolling endlessly through your Facebook newsfeed. As students, we know this situation all too well.
