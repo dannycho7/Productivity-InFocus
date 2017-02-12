@@ -17,6 +17,7 @@
 		{
 			"matches": ["*://*.youtube.com/*"],
 			"js": ["js/youtube_video.js"],
+			"css": ["css/modal.css"],
 			"run_at": "document_start"
 		},
 		{

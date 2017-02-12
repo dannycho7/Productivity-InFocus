@@ -1,46 +1,52 @@
 function loaded(){
 	chrome.storage.sync.get('key',function(result){
-		function includeWarningMessage(){
+		//remove all modals that exist
+		for(var i = 0; i < document.getElementsByClassName('video-modal').length;i++){
+			console.log("removed");
+			document.getElementsByClassName('video-modal')[i].remove();
+		}
+		function includeWarningMessage(category){
 			console.log("hello");
-			var div = createModal();
+			var div = createModal(category);
 			var node = document.getElementById('movie_player')
 			node.insertBefore(div, node.firstChild);
 		}
 
-		function createModal(){
+		function createModal(category){
 			// creating the modal div
-			var html = [
-				'<div> A wild modal has appeared</div>'
-			].join('');
 			var div = document.createElement('div');
 			// setting div attributes
-			div.setAttribute('id', 'modal');
-			div.style.width = "100%";
-			div.style.height = "100%";
-			div.style.position = "absolute";
-			div.style.backgroundColor = "black";
-			div.style.color = "red";
-			div.style.fontSize = "40px";
-			div.style.zIndex = 11;
-			div.style.textAlign = "center";
-			div.innerHTML = html;
+			div.className = 'video-modal';
 			// creating the button
-			var btn = document.createElement("BUTTON");
+			var btn = document.createElement("button");
 			btn.addEventListener("click", closeModal);
-
-
+			// creating the header
+			var header = document.createElement("h1");
+			header.innerHTML = "Do you have time to watch this?";
+			div.appendChild(header);
+			var description = document.createElement("p");
+			description.innerHTML = category + " will distract you from focusing!"
+			div.appendChild(description)
 			function closeModal() {
 				console.log(div);
 				div.parentNode.removeChild(div);
 			}
-			btn.style.zIndex = 12;
-			btn.style.color = "red";
-			var t = document.createTextNode("CLOSE ME");
+			var t = document.createTextNode("Proceed");
 			btn.appendChild(t);
 
 			// ordering the structure of button and div
 			div.appendChild(btn);
 			return div;
+		}
+		function categorySafe(){
+			var container = document.getElementById("watch-description-extras").children;
+			for(var i = 0; i < container.length; i++){
+				if(container[i].children[0].innerHTML.includes("Category")){
+					container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
+					break;
+				}
+			}
+			return container;
 		}
 		//stops video from playing
 		function stopVideo() {
@@ -48,16 +54,19 @@ function loaded(){
 			console.log("video", video);
 			if (video !== null && !(video.paused)) {
 				console.log("Video found and is pausing");
-				video.pause();
-				// creating the modal
-				includeWarningMessage();
+				//check for category
+				if(!(categorySafe().toString().includes("Education"))){
+					video.pause();
+					// creating the modal
+					includeWarningMessage(categorySafe().toString());
+				}
 				clearInterval(videostopper);
 			}
 			if(video.paused){
 				clearInterval(videostopper);
 			}
 		}
-		//hides comments
+		//hides comment-section-renderer
 		function hideContent(){
 			var comments = document.getElementById("comment-section-renderer");
 			var commentContainer = document.getElementById("watch-discussion");
