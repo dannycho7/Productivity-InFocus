@@ -25,5 +25,10 @@
 		"default_icon": "img/off.png",
 		"default_title": "LookFWD",
 		"default_popup": "popup.html"
-	}
+	},
+	"icons": { 
+		"16": "img/icon16.png",
+		"48": "img/icon48.png",
+		"128": "img/icon128.png" 
+    }
 }
