@@ -9,7 +9,7 @@
 4. Provide inspirational quotes throughout the blocking of information<br/>
 5. Analytic data provided for user visits via Chart.js API<br/>
 
-##Technologies: JavaScript, Chart.js API, URI.js API, and various Chrome extension APIs
+Technologies used: JavaScript, Chart.js API, URI.js API, and various Chrome extension APIs
 
 ##This was a submission by Danny Cho and Brian Yan for HackPoly 2017
 
