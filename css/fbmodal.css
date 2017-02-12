@@ -2,32 +2,34 @@
     font-family: 'Lato',sans-serif;
     src: url(fonts/Lato-Regular.ttf) format('truetype');
 }
-.video-modal{
+.modal{
 	font-family: 'Lato', sans-serif;
 	margin: 0;
 	position: absolute;
-	background-color: rgb(27,25,27);
-	color: white;
 	font-size: 40px;
 	z-index: 11;
 	text-align: center;
 }
-.video-modal h1{
+.modal h1{
 	font-weight: bold;
 	font-size: 34px;
 	margin-bottom: 40px;
 }
-.video-modal p{
+.modal p{
 	font-size: 18px;
 }
-.video-modal button{
+.modal button{
+	background-color: #4267b2;
+	border: 1px solid #4267b2;
 	color: white;
-	border: 1px solid white;
-	border-radius: 1px;
+	font-weight: bold;
+	text-shadow: none;
+	box-sizing: content-box;
+	border-radius: 2px;
 	padding: 10px 15px;
 }
-.video-modal button:hover{
+.modal button:hover{
 	cursor: pointer;
-	border-color: #FF4040;
-	color: #FF4040;
+	border-color: #33569C;
+	background-color: #33569C;
 }
