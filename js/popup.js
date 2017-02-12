@@ -1,3 +1,5 @@
+//script to handle popup options
+//loads when popup.html is opened by clicking on the extension icon
 var toggler = document.getElementById("toggler");
 var ontxt = "Pause LookFWD"
 var offtxt = "Unpause LookFWD"
