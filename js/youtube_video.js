@@ -38,6 +38,9 @@ function loaded(){
 							console.log(expiryTime);
 							var obj = {};
 							obj['videoCount'] = 0;
+							if(result.videoCount == undefined){
+								obj['videoCount'] = 1;
+							}
 							obj['expiryTime'] = expiryTime;
 							chrome.storage.sync.set(obj,function(){ console.log("set vidCount and expiryTime"); })
 						}
