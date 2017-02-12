@@ -1,10 +1,7 @@
 function loaded(){
 	chrome.storage.sync.get('key',function(result){
-		//remove all modals that exist
-		for(var i = 0; i < document.getElementsByClassName('video-modal').length;i++){
-			console.log("removed");
-			document.getElementsByClassName('video-modal')[i].remove();
-		}
+		//remove all modals that exist in the beginning of each video request
+		removeModal();
 		function includeWarningMessage(category){
 			console.log("hello");
 			var div = createModal(category);
@@ -25,7 +22,7 @@ function loaded(){
 			header.innerHTML = "Do you have time to watch this?";
 			div.appendChild(header);
 			var description = document.createElement("p");
-			description.innerHTML = category + " will distract you from focusing!"
+			description.innerHTML = category + " videos will distract you from focusing!"
 			div.appendChild(description)
 			function closeModal() {
 				console.log(div);
@@ -75,10 +72,17 @@ function loaded(){
 			var comments = document.getElementById("comment-section-renderer");
 			var commentContainer = document.getElementById("watch-discussion");
 			var commentBlocker = document.createElement('button');
+			function showContent(){
+				comments.style.display = "block";
+				commentBlocker.remove();
+			}
+			commentBlocker.addEventListener('click',showContent);
 			commentBlocker.className = 'comment-blocker';
-			commentBlocker.innerHTML = "HEY";
+			commentBlocker.innerHTML = "Reveal Comments";
 			if(comments){
 				comments.style.display = "none";
+				//removes buttons before adding them
+				removeCommentBlocker();
 				commentContainer.appendChild(commentBlocker);
 				console.log("Display set to none");
 				clearInterval(commenthide);
@@ -96,3 +100,14 @@ function loaded(){
 }
 document.addEventListener("spfdone",loaded);
 document.addEventListener("DOMContentLoaded", loaded);
+function removeModal(){
+	for(var i = 0; i < document.getElementsByClassName('video-modal').length;i++){
+		console.log("removed");
+		document.getElementsByClassName('video-modal')[i].remove();
+	}
+}
+function removeCommentBlocker(){
+	for(var i = 0; i < document.getElementsByClassName('comment-blocker').length; i++){
+		document.getElementsByClassName('comment-blocker')[i].remove();
+	}
+}

@@ -21,7 +21,7 @@
 	margin-bottom: 40px;
 }
 .video-modal p{
-	font-size: 20px;
+	font-size: 18px;
 }
 .video-modal button{
 	color: white;
@@ -35,5 +35,23 @@
 	color: #FF4040;
 }
 .comment-blocker{
-	width: 100%;
+    width: 100%;
+    border: 1px solid #d3d3d3;
+    padding: 10px 0;
+	background-color: #d3d3d3;
+	border-radius: 1px;
+	padding: 10px 0;
+	background-image: -moz-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
+    background-image: -ms-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
+    background-image: -o-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
+    background-image: -webkit-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
+    background-image: linear-gradient(to top,#fcfcfc 0,#f8f8f8 100%);
+}
+.comment-blocker:hover{
+	cursor: pointer;
+	-webkit-box-shadow: #999 0px 0px 1px;
+    background: #F3F3F3 -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#EBEBEB));
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#EBEBEB));
+    border-color: #999;
+    outline: 0px;
 }
