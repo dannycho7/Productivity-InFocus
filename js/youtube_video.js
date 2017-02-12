@@ -39,9 +39,12 @@ function loaded(){
 			return div;
 		}
 		function categorySafe(){
-			var container = document.getElementById("watch-description-extras").children;
+			var container = document.getElementById("watch-description-extras").children[0].children;
+			console.log(container)
 			for(var i = 0; i < container.length; i++){
+				console.log("container iteration")
 				if(container[i].children[0].innerHTML.includes("Category")){
+					console.log("container set!")
 					container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
 					break;
 				}
@@ -58,6 +61,7 @@ function loaded(){
 				if(!(categorySafe().toString().includes("Education"))){
 					video.pause();
 					// creating the modal
+						console.log(categorySafe());
 					includeWarningMessage(categorySafe().toString());
 				}
 				clearInterval(videostopper);
@@ -70,7 +74,8 @@ function loaded(){
 		function hideContent(){
 			var comments = document.getElementById("comment-section-renderer");
 			var commentContainer = document.getElementById("watch-discussion");
-			var commentBlocker = document.createElement('div');
+			var commentBlocker = document.createElement('button');
+			commentBlocker.className = 'comment-blocker';
 			commentBlocker.innerHTML = "HEY";
 			if(comments){
 				comments.style.display = "none";
