@@ -18,6 +18,6 @@ We can prevent procrastination together!
 4. Provides inspirational quotes throughout the blocking of information<br/>
 5. Provides analytics data visualization based on user activity via Chrome.storage API and Chart.js API<br/>
 
-Technologies used: JavaScript, HTML/CSS, Chart.js API, URI.js API, and various Chrome extension APIs
+Technologies used: JavaScript, HTML/CSS, Chart.js API, Youtube SPF API, URI.js API, and various Chrome extension APIs
 
 ##This was a submission by Danny Cho and Brian Yan for HackPoly 2017
