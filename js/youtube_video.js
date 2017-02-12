@@ -28,6 +28,33 @@ function loaded(){
 				div.parentNode.removeChild(div);
 				document.querySelector('video').play();
 				//send storage for # of youtube vids watched here
+				chrome.storage.sync.get(["allTimeCount","videoCount"],
+					function(result){
+						if(result.videoCount == undefined){
+							chrome.storage.sync.set({'videoCount':'0',},function(){ console.log("set vidCount"); })
+						}
+						else if(result.allTimeCount == undefined){
+							chrome.storage.sync.set({'allTimeCount':'0',},function(){ console.log("setallTimeCount"); })
+						}
+						else{
+							var total = parseInt(result.allTimeCount);
+							var current = parseInt(result.videoCount);
+							current++;
+							total++;
+							var obj = {};
+							var objAll = {};
+							obj['videoCount'] = current;
+							objAll['allTimeCount'] = total;
+							chrome.storage.sync.set(obj,function(){ console.log("incremented count"); })
+							chrome.storage.sync.set(objAll,function(){ console.log("incremented all time"); })
+						}
+					}
+				);
+				chrome.storage.sync.get(["videoCount","allTimeCount"],
+					function(result){ 
+						console.log("videoCount : " + result.videoCount + "allTimeCount : " + result.allTimeCount);
+					}
+				);
 			}
 			var t = document.createTextNode("Proceed");
 			btn.appendChild(t);
