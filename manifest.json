@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "LookFWD",
-	"version": "0.1",  
+	"version": "0.1",
 	"content_scripts": [
 	  {
 	    "matches": ["*://*.youtube.com/"],
@@ -9,7 +9,8 @@
 	  },
 	  {
 	  	"matches": ["*://*.youtube.com/*"],
-	  	"js": ["youtube_video.js"]
+	  	"js": ["youtube_video.js"],
+      "run_at": "document_start"
 	  },
 	  {
 	  	"matches": ["*://*.facebook.com/*"],
