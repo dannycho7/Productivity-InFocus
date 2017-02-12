@@ -11,11 +11,11 @@
 	],
 	"content_scripts": [
 		{
-			"matches": ["*://*.youtube.com/"],
+			"matches": ["*://*.youtube.com/*"],
 			"js": ["js/youtube_home.js"]
 		},
 		{
-			"matches": ["*://*.youtube.com/watch*"],
+			"matches": ["*://*.youtube.com/*"],
 			"js": ["js/youtube_video.js"],
 			"css": ["css/modal.css"],
 			"run_at": "document_start"
