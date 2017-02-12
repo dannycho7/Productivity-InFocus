@@ -1,14 +1,15 @@
 chrome.storage.sync.get('key',function(result){
 		if(result.key == "true"){
+			console.log("result key is true");
 			//add the code to execute here.
 		}
 });
 
-
-document.addEventListener("spfdone", stopVideo);
-document.addEventListener("DOMContentLoaded", stopVideo);
+//
+// document.addEventListener("spfdone", stopVideo);
+// document.addEventListener("DOMContentLoaded", stopVideo);
 // document.addEventListener("spfdone", hideContent);
-document.addEventListener("DOMContentLoaded", hideContent, false);
+// document.addEventListener("DOMContentLoaded", hideContent);
 // var video = document.getElementsByClassName('player-api')[0];
 //
 // function pauseVid() {
@@ -44,26 +45,26 @@ function stopVideo() {
 // document.querySelector('video').pause();
 console.log("youtube_video.js");
 function hideContent(){
-
   document.getElementById("comment-section-renderer-items").style.visibility = "hidden";
   // document.getElementById("comment-section-renderer-items").style.visibility = "hidden";
   // if(content !== null){
   //     content.style.visibility = "hidden";
   // }
-
 }
 
+function includeWarningMessage(){
+	var html = [
+			'<div> A line</div>',
+			'<div> Add more lines</div>',
+			'<div> To the array as you need.</div>'
+	].join('');
 
-var html = [
-    '<div> A line</div>',
-    '<div> Add more lines</div>',
-    '<div> To the array as you need.</div>'
-].join('');
-
-var div = document.createElement('div');
-    div.setAttribute('class', 'post block bc2');
-    div.innerHTML = html;
-    document.getElementById('comment-section-renderer')[0].appendChild(div);
-
-// setTimeout(hideContent, 5000);
+	var div = document.createElement('div');
+			div.setAttribute('class', 'post block bc2');
+			div.innerHTML = html;
+			document.getElementById('comment-section-renderer').appendChild(div);
+}
+setTimeout(hideContent, 10000);
+setTimeout(stopVideo, 10000);
+setTimeout(includeWarningMessage, 15000);
 // .style.visibility = "hidden";
