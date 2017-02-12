@@ -12,8 +12,7 @@
 	"content_scripts": [
 		{
 			"matches": ["*://*.youtube.com/*"],
-			"js": ["js/youtube_video.js"],
-			"js": ["js/youtube_home.js"],
+			"js": ["js/youtube_video.js","js/youtube_home.js"],
 			"css": ["css/modal.css"],
 			"run_at": "document_start"
 		},
