@@ -27,6 +27,7 @@ function loaded(){
 				console.log(div);
 				div.parentNode.removeChild(div);
 				document.querySelector('video').play();
+				//send storage for # of youtube vids watched here
 			}
 			var t = document.createTextNode("Proceed");
 			btn.appendChild(t);
