@@ -12,19 +12,19 @@ function off(){
 function toggle(){
 	chrome.storage.sync.get('key',function(result){
 		console.log("toggle function key val is " + result.key);
-		if(result.key == "false"){
+		if(result.key == "true"){
 			chrome.storage.sync.set({
-				'key': "true"
+				'key': "false"
 				},function(){
-					on();
+					off();
 				}
 			);
 		}
 		else{
 			chrome.storage.sync.set({
-				'key': "false"
+				'key': "true"
 				},function(){
-					off();
+					on();
 				}
 			);
 		}
@@ -33,12 +33,16 @@ function toggle(){
 
 function restore_options(){
 	chrome.storage.sync.get('key',function(result){
+		if(result.key == undefined){
+			chrome.storage.sync.set({
+				'key': "false"
+			});
+		}
 		if(result.key == "true"){
 			on();
 		}
 		else{
 			off();
-
 		}
 	});
 }
