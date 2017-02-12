@@ -26,6 +26,7 @@ function loaded(){
 			function closeModal() {
 				console.log(div);
 				div.parentNode.removeChild(div);
+				document.querySelector('video').play();
 			}
 			var t = document.createTextNode("Proceed");
 			btn.appendChild(t);
