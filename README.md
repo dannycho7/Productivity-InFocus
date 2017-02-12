@@ -7,7 +7,7 @@
 2. Block out thumbnails/clickbait along with preventing seamless youtube video streaming and facebook news feed scroll<br/>
 3. Hide comments for youtube<br/>
 4. Provide inspirational quotes throughout the blocking of information<br/>
-5. Analytic data provided for user visits via Chart.js API<br/>
+5. Analytic data provided for user visits via Chrome.storage API and Chart.js API<br/>
 
 Technologies used: JavaScript, Chart.js API, URI.js API, and various Chrome extension APIs
 
