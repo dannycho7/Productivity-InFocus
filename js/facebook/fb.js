@@ -17,6 +17,11 @@ function loaded(){
 		    }
 		}
 		function createModal(){
+			//remove any existing modals
+			var modals = document.getElementsByClassName('modal');
+			for(var i = 0; i < modals.length; i++){
+				modals[i].remove();
+			}
 			// creating the modal div
 			var div = document.createElement('div');
 			// setting div attributes
@@ -39,7 +44,8 @@ function loaded(){
 			header.innerHTML = "Do you have time to scroll?";
 			div.appendChild(header);
 			var description = document.createElement("p");
-			description.innerHTML = "Facebook feed will distract you from focusing!"
+			description.className = 'quote';
+			description.innerHTML = generateQuote();
 			div.appendChild(description)
 			
 			var t = document.createTextNode("Proceed");
