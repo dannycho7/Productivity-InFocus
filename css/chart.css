@@ -1,5 +1,9 @@
 .chart{
-        width: 100% !important;
-        max-width: 500px;
-        height: auto !important;
-  }
+    max-width: 40%;
+}
+#data{
+	width: 100%;
+}
+#data canvas{
+	display: inline-block !important;
+}

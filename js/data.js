@@ -3,6 +3,7 @@ function updateData(){
 		['allTimeCount','videoCount','expiryTime'],
 		function(result){			
 			//reset count if a day has passed
+			var d = new Date();
 			if(result.videoCount == undefined || d > result.expiryTime){
 				var expiryTime = new Date();
 				expiryTime = parseInt(expiryTime.getTime()) + 86400000;
@@ -12,40 +13,19 @@ function updateData(){
 				obj['expiryTime'] = expiryTime;
 				chrome.storage.sync.set(obj,function(){ console.log("set vidCount and expiryTime"); })
 			}
-			var data = document.getElementById('data');
-			var d = new Date();
-			d = result.expiryTime - d.getTime();
-			data.innerHTML = "result all time "+result.allTimeCount + " result video count "+ result.videoCount + " result expiryTime " + result.expiryTime + " MS til expiration " + d;
-
 			//chart stuff
 			var ctx = document.getElementById("myChart");
 			var count = result.videoCount;
 			var myChart = new Chart(ctx, {
 			    type: 'line',
 			    data: {
-			        labels: ["Thursday", "Friday", "Saturday" ,"Sunday"],
+			        labels: ["Wednesday","Thursday", "Friday", "Saturday" ,"Sunday"],
 			        datasets: [{
-			            label: '# of Votes',
-			            data: [2,3,5,count],
-			            backgroundColor: [
-			                'rgba(123, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)',
-			                'rgba(255, 99, 132, 0.2)'
-			            ],
-			            borderColor: [
-			                'rgba(123,99,132,1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)',
-			                'rgba(255, 99, 132, 1)'
-			            ],
-			            borderWidth: 1
+			            label: '# of Videos watched',
+			            data: [21,15,13,11,count],
+			            backgroundColor: "rgba(218,127,127,0.4)",
+			            borderColor: "rgba(138,28,28,0.5)",
+			            pointBackgroundColor: "rgb(138,28,28)"
 			        }]
 			    },
 			    options: {
@@ -61,4 +41,4 @@ function updateData(){
 		}
 	);
 }
-document.addEventListener("DOMContentLoaded", updateData);
+document.addEventListener("DOMContentLoaded", function(){updateData(); setInterval(updateData,5000);});
