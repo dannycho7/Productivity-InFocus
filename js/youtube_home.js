@@ -18,5 +18,4 @@ function thumbnail(){
 		}
 	});
 }
-window.addEventListener('load',function(){thumbnail();});
-setInterval(thumbnail,3000);
+window.addEventListener('load',function(){thumbnail(); setInterval(thumbnail,3000);});
