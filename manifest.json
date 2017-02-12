@@ -16,8 +16,8 @@
 		},
 		{
 			"matches": ["*://*.youtube.com/*"],
-			"run_at": "document_start",
-			"js": ["js/youtube_video.js"]
+			"js": ["js/youtube_video.js"],
+			"run_at": "document_start"
 		},
 		{
 			"matches": ["*://*.facebook.com/*"],
