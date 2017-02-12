@@ -41,7 +41,7 @@ function updateData(){
 
 		var radarCtx = document.getElementById("radarChart");
 		var radarData = {
-		    labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+		    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
 		    datasets: [
 		        {
 		            label: "Current week ",
