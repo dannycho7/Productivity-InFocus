@@ -53,7 +53,7 @@ function updateData(){
 		            borderColor: "rgba(80, 244, 66, 0.6)",
 		            pointHoverBackgroundColor: "rgba(66, 244, 95, 0.8)",
 		            pointHoverBorderColor: "rgba(255, 255, 255, 1)",
-		            data: [65, 59, 90, 81, 56, 55, 40]
+		            data: [65, 59, 90, 81, 56, 55, count]
 		        },
 		        {
 		            label: "Last week",
@@ -65,7 +65,7 @@ function updateData(){
 		            borderColor: "rgba(66, 122, 244 , 0.6)",
 		            pointHoverBackgroundColor: "rgba(66, 134, 244, 0.8)",
 		            pointHoverBorderColor: "rgba(255, 255, 255, 1)",
-		            data: [28, 48, 40, 19, 96, 27, 100]
+		            data: [28, 48, 40, 19, 96, 27, 60]
 		        }
 		    ]
 		}; // end data
