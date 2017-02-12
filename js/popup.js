@@ -4,12 +4,16 @@ var toggler = document.getElementById("toggler");
 var ontxt = "Pause LookFWD"
 var offtxt = "Unpause LookFWD"
 function on(){
-	toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on
-	chrome.browserAction.setIcon({path:"/img/on.png"});
+	if(toggler){
+		toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on
+		chrome.browserAction.setIcon({path:"/img/on.png"});
+	}
 }
 function off(){
-	toggler.innerHTML = offtxt;//Text to be displayed after LookFWD has been turned off
-	chrome.browserAction.setIcon({path:"/img/off.png"});
+	if(toggler){
+		toggler.innerHTML = offtxt;//Text to be displayed after LookFWD has been turned off
+		chrome.browserAction.setIcon({path:"/img/off.png"});
+	}
 }
 function toggle(){
 	chrome.storage.sync.get('key',function(result){
@@ -49,16 +53,8 @@ function restore_options(){
 	});
 }
 document.addEventListener('DOMContentLoaded', restore_options);
-toggler.addEventListener('click',function(){
-	toggle();
-});
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-91833017-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = 'https://ssl.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+if(toggler){
+	toggler.addEventListener('click',function(){
+		toggle();
+	});
+}

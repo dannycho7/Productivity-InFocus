@@ -30,4 +30,11 @@ html {
 .chart-demo {
   float: left;
   width: 640px;
+  max-width: 40%;
+}
+#data{
+	width: 100%;
+}
+#data canvas{
+	display: inline-block !important;
 }

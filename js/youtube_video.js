@@ -27,6 +27,35 @@ function loaded(){
 				console.log(div);
 				div.parentNode.removeChild(div);
 				document.querySelector('video').play();
+				//send storage for # of youtube vids watched here
+				chrome.storage.sync.get(["allTimeCount","videoCount","expiryTime"],
+					function(result){
+						var d = new Date();
+						d = d.getTime();
+						if(result.videoCount == undefined || d > result.expiryTime){
+							var expiryTime = new Date();
+							expiryTime = parseInt(expiryTime.getTime()) + 86400000;
+							console.log(expiryTime);
+							var obj = {};
+							obj['videoCount'] = 0;
+							obj['expiryTime'] = expiryTime;
+							chrome.storage.sync.set(obj,function(){ console.log("set vidCount and expiryTime"); })
+						}
+						else if(result.allTimeCount == undefined){
+							chrome.storage.sync.set({'allTimeCount':'0',},function(){ console.log("setallTimeCount"); })
+						}
+						else{
+							var total = parseInt(result.allTimeCount);
+							var current = parseInt(result.videoCount);
+							current++;
+							total++;
+							var obj = {};
+							obj['videoCount'] = current;
+							obj['allTimeCount'] = total;
+							chrome.storage.sync.set(obj,function(){ console.log("incremented count"); })
+						}
+					}
+				);
 			}
 			var t = document.createTextNode("Proceed");
 			btn.appendChild(t);
@@ -52,10 +81,10 @@ function loaded(){
 			if (video !== null && !(video.paused)) {
 				console.log("Video found and is pausing");
 				//check for category
-				if(!(categorySafe().toString().includes("Education"))){
+				if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
 					video.pause();
 					// creating the modal
-						console.log(categorySafe());
+					console.log(categorySafe());
 					includeWarningMessage(categorySafe().toString());
 				}
 				clearInterval(videostopper);
