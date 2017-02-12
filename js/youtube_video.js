@@ -98,16 +98,21 @@ function loaded(){
 		}
 	});
 }
-document.addEventListener("spfdone",loaded);
-document.addEventListener("DOMContentLoaded", loaded);
+//removes modals that we have manually added
 function removeModal(){
 	for(var i = 0; i < document.getElementsByClassName('video-modal').length;i++){
 		console.log("removed");
 		document.getElementsByClassName('video-modal')[i].remove();
 	}
 }
+//removes comment blockers we have manually added
 function removeCommentBlocker(){
 	for(var i = 0; i < document.getElementsByClassName('comment-blocker').length; i++){
 		document.getElementsByClassName('comment-blocker')[i].remove();
 	}
 }
+
+
+document.addEventListener("spfdone",loaded);
+document.addEventListener("DOMContentLoaded", loaded);
+

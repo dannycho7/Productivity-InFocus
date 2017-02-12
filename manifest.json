@@ -4,7 +4,7 @@
 	"version": "0.1",
 	"options_page": "options.html",
 	"background": {
-		"scripts": ["js/set_icon.js"]
+		"scripts": ["js/set_icon.js","js/facebook/background.js"]
 	},
 	"permissions": [
 		"storage"
@@ -15,14 +15,14 @@
 			"js": ["js/youtube_home.js"]
 		},
 		{
-			"matches": ["*://*.youtube.com/*"],
+			"matches": ["*://*.youtube.com/watch*"],
 			"js": ["js/youtube_video.js"],
 			"css": ["css/modal.css"],
 			"run_at": "document_start"
 		},
 		{
 			"matches": ["*://*.facebook.com/*"],
-			"js": ["js/facebook.js"]
+			"js": ["js/facebook/fb.js"]
 		}
 	],
 	"browser_action": {
