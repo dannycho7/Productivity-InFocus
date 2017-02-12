@@ -1,8 +1,14 @@
 #LookFWD
 
-##LookFWD is a chrome extension that solves procrastination! 
-We've all been there. Two days before a midterm, you motivate yourself to studying the rest of the day, and somehow you end up browsing random youtube videos or scrolling endlessly through meaningless text on Facebook news feed. We're students too, we get it. LookFWD was originally inspired by my efforts to prevent this type of procrastination. I dedicated to logging out of Facebook before I exit out of the app, and before I knew it I was only logging in to Facebook once or twice a day. <br/>
-It seems that periodical reminders to stay on task can indeed put you back on task. LookFWD aims to put you back on task. By consistently asking you if watching an Entertainment video is the best choice 12 hours before a midterm, we hope to reduce procrastination, even if by a little bit. LookFWD will give warnings based on the category/metadata of the content being loaded. <br/>
+##LookFWD is a chrome extension that solves procrastination!
+There I was, walking to my desk and ready to get some work done. I go on my laptop and open up tabs to facebook, youtube and gmail. The usual suspects. You can  predict what happened next.
+
+We've all been there. Two days before a deadline, you motivate yourself to work the rest of the day. And somehow you end up watching DIY cooking videos, one after another and scrolling endlessly through your Facebook newsfeed. As students, we know this situation all too well.
+
+LookFWD was originally inspired by my efforts to prevent this type of procrastination. At the start of the winter break, I dedicatd myself to logging out of Facebook before I exit out of the app, and before I knew it I was only logging in to Facebook once or twice a day. <br/>
+
+It seems that periodical reminders to stay on task can keep you looking forward. By consistently asking you if watching an Entertainment video is the best choice 12 hours before a midterm, LookFWD aims to reduce procrastination, even if by a little bit. LookFWD will give warnings based on the category and metadata of the content being loaded by the browser. <br/>
+
 We can solve procrastination together!
 
 ##General Functionalities: <br/>
@@ -15,4 +21,3 @@ We can solve procrastination together!
 Technologies used: JavaScript, Chart.js API, URI.js API, and various Chrome extension APIs
 
 ##This was a submission by Danny Cho and Brian Yan for HackPoly 2017
-
