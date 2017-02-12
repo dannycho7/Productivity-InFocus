@@ -2,6 +2,7 @@
 	"manifest_version": 2,
 	"name": "LookFWD",
 	"version": "0.1",
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 	"options_page": "options.html",
 	"background": {
 		"scripts": ["js/set_icon.js","js/facebook/background.js"]
@@ -19,7 +20,12 @@
 		{
 			"matches": ["*://*.facebook.com/*"],
 			"js": ["js/facebook/fb.js"],
-      "css": ["css/fbmodal.css"]
+      		"css": ["css/fbmodal.css"]
+		},
+		{
+			"matches": ["<all_urls>"],
+			"exclude_matches": ["*://*/_/chrome/newtab*"],
+			"js": ["js/url_cdn.js","js/url.js"]
 		}
 	],
 	"browser_action": {

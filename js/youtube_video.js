@@ -60,7 +60,7 @@ function loaded(){
 				}
 				clearInterval(videostopper);
 			}
-			if(video.paused){
+			if(video !== null && video.paused){
 				clearInterval(videostopper);
 			}
 		}
