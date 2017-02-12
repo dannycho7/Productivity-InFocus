@@ -15,9 +15,13 @@ function loaded(){
 		}
 		//hides comments
 		function hideContent(){
-			var comments = document.getElementById("comment-section-renderer");	
+			var comments = document.getElementById("comment-section-renderer");
+			var commentContainer = document.getElementById("watch-discussion");
+			var commentBlocker = document.createElement('div');
+			commentBlocker.innerHTML = "HEY";
 			if(comments){
 				comments.style.display = "none";
+				commentContainer.appendChild(commentBlocker);
 				console.log("Display set to none");
 				clearInterval(commenthide);
 				//append an element that prompts user if they want to continue
