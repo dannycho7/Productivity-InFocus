@@ -11,7 +11,7 @@ function thumbnail(){
 			}
 			function changeImage(thumb){
 				for(var i = 0; i < thumb.length; i++){
-					thumb[i].children[0].src = "https://i.imgflip.com/r2rlu.jpg";
+					thumb[i].children[0].src = "https://i.stack.imgur.com/poVgz.png";
 				}
 			}
 		}
