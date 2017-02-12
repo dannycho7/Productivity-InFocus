@@ -22,7 +22,8 @@
 		},
 		{
 			"matches": ["*://*.facebook.com/*"],
-			"js": ["js/facebook/fb.js"]
+			"js": ["js/facebook/fb.js"],
+      "css": ["css/fbmodal.css"]
 		}
 	],
 	"browser_action": {
