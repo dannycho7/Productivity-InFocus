@@ -15,7 +15,7 @@ function loaded(){
 		}
 		//hides comments
 		function hideContent(){
-			var comments = document.getElementById("comment-section-renderer-items");
+			var comments = document.getElementById("comment-section-renderer");	
 			if(comments){
 				comments.style.display = "none";
 				console.log("Display set to none");
