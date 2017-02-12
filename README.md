@@ -12,11 +12,11 @@ It seems that periodical reminders to stay on task can keep you in focus. By con
 We can prevent procrastination together!
 
 ##General Functionalities: <br/>
-1. Remind and alert users when they're off task <br/>
-2. Block out thumbnails/clickbait along with preventing seamless youtube video streaming and facebook news feed scroll<br/>
-3. Scraped Youtube and Facebook to hide comments on both platforms and videos on youtube based on categories<br/>
-4. Provide inspirational quotes throughout the blocking of information<br/>
-5. Analytic data provided for user visits via Chrome.storage API and Chart.js API<br/>
+1. Reminds and alerts users when they're off task <br/>
+2. Blocks out thumbnails/clickbait along with preventing seamless youtube video streaming and facebook news feed scroll<br/>
+3. Scrapes Youtube and Facebook to hide comments on both platforms and videos on youtube based on categories<br/>
+4. Provides inspirational quotes throughout the blocking of information<br/>
+5. Provides analytics data visualization based on user activity via Chrome.storage API and Chart.js API<br/>
 
 Technologies used: JavaScript, Chart.js API, URI.js API, and various Chrome extension APIs
 
