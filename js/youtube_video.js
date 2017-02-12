@@ -28,10 +28,18 @@ function loaded(){
 				div.parentNode.removeChild(div);
 				document.querySelector('video').play();
 				//send storage for # of youtube vids watched here
-				chrome.storage.sync.get(["allTimeCount","videoCount"],
+				chrome.storage.sync.get(["allTimeCount","videoCount","expiryTime"],
 					function(result){
-						if(result.videoCount == undefined){
-							chrome.storage.sync.set({'videoCount':'0',},function(){ console.log("set vidCount"); })
+						var d = new Date();
+						d = d.getTime();
+						if(result.videoCount == undefined || d > result.expiryTime){
+							var expiryTime = new Date();
+							expiryTime = parseInt(expiryTime.getTime()) + 86400000;
+							console.log(expiryTime);
+							var obj = {};
+							obj['videoCount'] = 0;
+							obj['expiryTime'] = expiryTime;
+							chrome.storage.sync.set(obj,function(){ console.log("set vidCount and expiryTime"); })
 						}
 						else if(result.allTimeCount == undefined){
 							chrome.storage.sync.set({'allTimeCount':'0',},function(){ console.log("setallTimeCount"); })
@@ -42,17 +50,10 @@ function loaded(){
 							current++;
 							total++;
 							var obj = {};
-							var objAll = {};
 							obj['videoCount'] = current;
-							objAll['allTimeCount'] = total;
+							obj['allTimeCount'] = total;
 							chrome.storage.sync.set(obj,function(){ console.log("incremented count"); })
-							chrome.storage.sync.set(objAll,function(){ console.log("incremented all time"); })
 						}
-					}
-				);
-				chrome.storage.sync.get(["videoCount","allTimeCount"],
-					function(result){ 
-						console.log("videoCount : " + result.videoCount + "allTimeCount : " + result.allTimeCount);
 					}
 				);
 			}
@@ -80,10 +81,10 @@ function loaded(){
 			if (video !== null && !(video.paused)) {
 				console.log("Video found and is pausing");
 				//check for category
-				if(!(categorySafe().toString().includes("Education"))){
+				if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
 					video.pause();
 					// creating the modal
-						console.log(categorySafe());
+					console.log(categorySafe());
 					includeWarningMessage(categorySafe().toString());
 				}
 				clearInterval(videostopper);
