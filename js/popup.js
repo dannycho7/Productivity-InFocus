@@ -1,6 +1,14 @@
 var toggler = document.getElementById("toggler");
 var ontxt = "Pause LookFWD"
 var offtxt = "Unpause LookFWD"
+function on(){
+	toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on
+	chrome.browserAction.setIcon({path:"/img/on.png"});
+}
+function off(){
+	toggler.innerHTML = offtxt;//Text to be displayed after LookFWD has been turned off
+	chrome.browserAction.setIcon({path:"/img/off.png"});
+}
 function toggle(){
 	chrome.storage.sync.get('key',function(result){
 		console.log("toggle function key val is " + result.key);
@@ -8,7 +16,7 @@ function toggle(){
 			chrome.storage.sync.set({
 				'key': "true"
 				},function(){
-					toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on
+					on();
 				}
 			);
 		}
@@ -16,7 +24,7 @@ function toggle(){
 			chrome.storage.sync.set({
 				'key': "false"
 				},function(){
-					toggler.innerHTML = offtxt;//Text to be displayed after LookFWD has been turned off
+					off();
 				}
 			);
 		}
@@ -26,10 +34,10 @@ function toggle(){
 function restore_options(){
 	chrome.storage.sync.get('key',function(result){
 		if(result.key == "true"){
-			toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on
+			on();
 		}
 		else{
-			toggler.innerHTML = offtxt;//Text to be displayed after LookFWD has been turned off
+			off();
 
 		}
 	});
