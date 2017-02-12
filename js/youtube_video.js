@@ -3,7 +3,6 @@ function loaded(){
 		//remove all modals that exist in the beginning of each video request
 		removeModal();
 		function includeWarningMessage(category){
-			console.log("hello");
 			var div = createModal(category);
 			var node = document.getElementById('movie_player')
 			node.insertBefore(div, node.firstChild);
@@ -39,9 +38,7 @@ function loaded(){
 			var container = document.getElementById("watch-description-extras").children[0].children;
 			console.log(container)
 			for(var i = 0; i < container.length; i++){
-				console.log("container iteration")
 				if(container[i].children[0].innerHTML.includes("Category")){
-					console.log("container set!")
 					container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
 					break;
 				}
@@ -51,7 +48,6 @@ function loaded(){
 		//stops video from playing
 		function stopVideo() {
 			var video = document.querySelector('video');
-			console.log("video", video);
 			if (video !== null && !(video.paused)) {
 				console.log("Video found and is pausing");
 				//check for category
