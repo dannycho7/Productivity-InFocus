@@ -1,7 +1,6 @@
 function thumbnail(){
 	chrome.storage.sync.get('key',function(result){
 		if(result.key == "true"){
-			console.log("running");
 			var thumbnail = document.getElementsByClassName('yt-thumb-simple');
 			if(thumbnail.length > 0){
 				changeImage(thumbnail);
@@ -18,4 +17,6 @@ function thumbnail(){
 		}
 	});
 }
-window.addEventListener('load',function(){thumbnail(); setInterval(thumbnail,3000);});
+
+document.addEventListener("spfdone",thumbnail);
+document.addEventListener("DOMContentLoaded", function(){thumbnail(); setInterval(thumbnail,2000);});
