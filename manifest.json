@@ -8,7 +8,8 @@
 		"scripts": ["js/set_icon.js","js/facebook/background.js"]
 	},
 	"permissions": [
-		"storage"
+		"storage",
+		"tabs"
 	],
 	"content_scripts": [
 		{
@@ -19,7 +20,7 @@
 		},
 		{
 			"matches": ["*://*.facebook.com/*"],
-			"js": ["js/facebook/fb.js"],
+			"js": ["js/quote.js","js/facebook/fb.js"],
       		"css": ["css/fbmodal.css"]
 		},
 		{

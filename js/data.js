@@ -84,4 +84,5 @@ function updateData(){
 		}
 	);
 }
-document.addEventListener("DOMContentLoaded", function(){updateData(); setInterval(updateData,5000);});
+chrome.tabs.onActivated.addListener(function(){updateData();})
+document.addEventListener("DOMContentLoaded", function(){updateData();});
