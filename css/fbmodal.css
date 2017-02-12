@@ -8,6 +8,9 @@
 	margin: 0;
 	position: absolute;
 	font-size: 40px;
+	padding: 10px 3px;
+	background-color: white;
+	border-radius: 2px;
 	z-index: 11;
 	text-align: center;
 }

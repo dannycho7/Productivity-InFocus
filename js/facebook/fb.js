@@ -27,8 +27,8 @@ function loaded(){
 			// setting div attributes
 			div.className = 'modal';
 			var facebookFeed = document.getElementById('pagelet_composer');
-			var width = window.getComputedStyle(facebookFeed).getPropertyValue("width");
-			div.style.width = width;
+			var width = parseInt(window.getComputedStyle(facebookFeed).getPropertyValue("width")) - 6;
+			div.style.width = width + 'px';
 			// creating the button
 			var btn = document.createElement("button");
 			function showContent(){
