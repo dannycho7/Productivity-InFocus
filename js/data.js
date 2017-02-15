@@ -48,14 +48,13 @@ function addChart(result,date){
 	            borderColor: "rgba(80, 244, 66, 0.6)",
 	            pointHoverBackgroundColor: "rgba(66, 244, 95, 0.8)",
 	            pointHoverBorderColor: "rgba(255, 255, 255, 1)",
-	            data: [65, 59, 90, 81, 56, 55, count]
+	            data: [65, 59, 90, 81, 56, 55x, count]
 	        },
 	        {
 	            label: "Last week",
 	            fillColor : "rgba(151,187,205,0.5)",
 				      strokeColor : "rgba(151,187,205,1)",
 	            backgroundColor: "rgba(66, 122, 244 , 0.4)",
-	            // borderColor: "rgba(255,99,132,1)",
 	            pointBackgroundColor: "rgba(66, 134, 244, 0.8)",
 	            borderColor: "rgba(66, 122, 244 , 0.6)",
 	            pointHoverBackgroundColor: "rgba(66, 134, 244, 0.8)",
