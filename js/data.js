@@ -1,5 +1,5 @@
 function getStringDay(numday){
-	var weekday = ["Sunday","Monday","Tuesday","Thursday","Friday","Saturday","Sunday"];
+	var weekday = ["Sunday","Monday","Tuesday","Wednesday", "Thursday","Friday","Saturday","Sunday"];
 	if(numday < 0){
 		numday += 7;
 	}
@@ -36,7 +36,7 @@ function addChart(result,date){
 
 	var radarCtx = document.getElementById("radarChart");
 	var radarData = {
-	    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+	    labels: [getStringDay(numday-6), getStringDay(numday-5), getStringDay(numday-4), getStringDay(numday-3), getStringDay(numday-2), getStringDay(numday-1), getStringDay(numday)],
 	    datasets: [
 	        {
 	            label: "Current week ",
