@@ -1,16 +1,20 @@
 function getStringDay(numday){
 	var weekday = ["Sunday","Monday","Tuesday","Thursday","Friday","Saturday","Sunday"];
+	if(numday < 0){
+		numday += 7;
+	}
 	return weekday[numday];
 }
 function addChart(result,date){
 	console.log(getStringDay(date.getDay()));
+	var numday = date.getDay();
 	//chart stuff
 	var ctx = document.getElementById("myChart");
 	var count = result.videoCount;
 	var myChart = new Chart(ctx, {
 	    type: 'line',
 	    data: {
-	        labels: ["Wednesday","Thursday", "Friday", "Saturday" ,"Sunday"],
+	        labels: [getStringDay(numday-4), getStringDay(numday-3), getStringDay(numday-2), getStringDay(numday-1), getStringDay(numday)],
 	        datasets: [{
 	            label: '# of Videos watched',
 	            data: [21,15,13,11,count],
