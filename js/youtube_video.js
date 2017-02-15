@@ -37,9 +37,11 @@ function loaded(){
 							expiryTime = parseInt(expiryTime.getTime()) + 86400000;
 							console.log(expiryTime);
 							var obj = {};
-							obj['videoCount'] = 0;
 							if(result.videoCount == undefined){
 								obj['videoCount'] = 1;
+							}
+							else{
+								obj['videoCount'] = 0;
 							}
 							obj['expiryTime'] = expiryTime;
 							chrome.storage.sync.set(obj,function(){ console.log("set vidCount and expiryTime"); })
