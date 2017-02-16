@@ -25,7 +25,11 @@ function formatToday(num){
 }
 //Background script to change the icon based on user settings
 chrome.storage.sync.get(null,function(result){
-	if(result.key == "true"){
+	if(result.key == undefined){
+		//default option on first download
+		chrome.storage.sync.set({ 'key': "true" }, function(){chrome.browserAction.setIcon({path:"/img/on.png"});} );
+	}
+	else if(result.key == "true"){
 		chrome.browserAction.setIcon({path:"/img/on.png"});
 	}
 	else{
@@ -34,7 +38,7 @@ chrome.storage.sync.get(null,function(result){
 	if(result.allTimeCount == undefined){
 		chrome.storage.sync.set({'allTimeCount':'0',},function(){ console.log("setallTimeCount"); })
 	}
-	//setting default videoCount
+	//setting default videoCountb
 	if(result[formatToday(0)] == undefined){
 		var obj = {};
 		obj[formatToday(0)] = 0;

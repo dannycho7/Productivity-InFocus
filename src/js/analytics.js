@@ -33,6 +33,7 @@ function getStringDay(numday){
 function addChart(){
 	chrome.storage.sync.get(null,
 		function(result){
+			//ParseData
 			//returns the value at the key 
 			//returns 0 if it is not set
 			function parseData(key){

@@ -37,21 +37,6 @@ function toggle(){
 	});
 }
 
-function restore_options(){
-	chrome.storage.sync.get('key',function(result){
-		if(result.key == undefined){
-			chrome.storage.sync.set({
-				'key': "false"
-			});
-		}
-		if(result.key == "true"){
-			on();
-		}
-		else{
-			off();
-		}
-	});
-}
 document.addEventListener('DOMContentLoaded', restore_options);
 if(toggler){
 	toggler.addEventListener('click',function(){
