@@ -1,8 +1,8 @@
 //script to handle popup options
 //loads when popup.html is opened by clicking on the extension icon
 var toggler = document.getElementById("toggler");
-var ontxt = "Pause LookFWD"
-var offtxt = "Unpause LookFWD"
+var ontxt = "Pause LookFWD";
+var offtxt = "Unpause LookFWD";
 function on(){
 	if(toggler){
 		toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on
@@ -36,6 +36,16 @@ function toggle(){
 		}
 	});
 }
+document.addEventListener("DOMContentLoaded", function(){
+	chrome.storage.sync.get(null,function(result){
+		if(result.key == "true"){
+			on();
+		}
+		else{
+			off();
+		}
+	});
+});
 if(toggler){
 	toggler.addEventListener('click',function(){
 		toggle();
