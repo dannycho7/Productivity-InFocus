@@ -5,7 +5,7 @@
 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 	"options_page": "options.html",
 	"background": {
-		"scripts": ["js/set_icon.js","js/facebook/background.js"]
+		"scripts": ["js/background.js","js/facebook/background.js"]
 	},
 	"permissions": [
 		"storage",
