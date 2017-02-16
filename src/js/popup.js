@@ -1,8 +1,8 @@
 //script to handle popup options
 //loads when popup.html is opened by clicking on the extension icon
 var toggler = document.getElementById("toggler");
-var ontxt = "Pause LookFWD";
-var offtxt = "Unpause LookFWD";
+var ontxt = "Pause Producitivity Mode";
+var offtxt = "Unpause Producitivity Mode";
 function on(){
 	if(toggler){
 		toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on

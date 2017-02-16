@@ -27,7 +27,7 @@ function formatToday(num){
 chrome.storage.sync.get(null,function(result){
 	if(result.key == undefined){
 		//default option on first download
-		chrome.storage.sync.set({ 'key': "true" }, function(){chrome.browserAction.setIcon({path:"/img/on.png"});} );
+		chrome.storage.sync.set({ 'key': "true" }, function(){ chrome.browserAction.setIcon({path:"/img/on.png"}); } );
 	}
 	else if(result.key == "true"){
 		chrome.browserAction.setIcon({path:"/img/on.png"});
@@ -43,6 +43,6 @@ chrome.storage.sync.get(null,function(result){
 		var obj = {};
 		obj[formatToday(0)] = 0;
 		console.log(obj[formatToday(0)]);
-		chrome.storage.sync.set(obj,function(){ console.log("set vidCount and expiryTime"); });
+		chrome.storage.sync.set(obj,function(){ console.log("set vidCount"); });
 	}
 });
