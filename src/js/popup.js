@@ -36,8 +36,6 @@ function toggle(){
 		}
 	});
 }
-
-document.addEventListener('DOMContentLoaded', restore_options);
 if(toggler){
 	toggler.addEventListener('click',function(){
 		toggle();
