@@ -1,4 +1,4 @@
-function loaded(){
+	function loaded(){
 	chrome.storage.sync.get('key',function(result){
 		//remove all modals that exist in the beginning of each video request
 		removeModal();
@@ -46,7 +46,7 @@ function loaded(){
 							obj['expiryTime'] = expiryTime;
 							chrome.storage.sync.set(obj,function(){ console.log("set vidCount and expiryTime"); })
 						}
-						else if(result.allTimeCount == undefined){
+						if(result.allTimeCount == undefined){
 							chrome.storage.sync.set({'allTimeCount':'0',},function(){ console.log("setallTimeCount"); })
 						}
 						else{
