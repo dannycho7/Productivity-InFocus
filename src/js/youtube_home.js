@@ -11,7 +11,8 @@ function thumbnail(){
 			}
 			function changeImage(thumb){
 				for(var i = 0; i < thumb.length; i++){
-					thumb[i].children[0].src = "https://i.stack.imgur.com/poVgz.png";
+					//thumb[i].children[0].src = "https://i.stack.imgur.com/poVgz.png";
+					thumb[i].children[0].src = chrome.extension.getURL("img/black.png");
 				}
 			}
 		}

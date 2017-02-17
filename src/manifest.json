@@ -1,11 +1,11 @@
 {
 	"manifest_version": 2,
-	"name": "LookFWD",
-	"version": "1.1.0",
-	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+	"name": "Productivity InFocus",
+	"version": "0.1",
 	"options_page": "options.html",
+	"web_accessible_resources": ["img/black.png"],
 	"background": {
-		"scripts": ["js/set_icon.js","js/facebook/background.js"]
+		"scripts": ["js/background.js","js/facebook/background.js"]
 	},
 	"permissions": [
 		"storage",
@@ -26,12 +26,12 @@
 		{
 			"matches": ["<all_urls>"],
 			"exclude_matches": ["*://*/_/chrome/newtab*"],
-			"js": ["js/url_cdn.js","js/url.js"]
+			"js": ["js/api/url_cdn.js","js/url.js"]
 		}
 	],
 	"browser_action": {
-		"default_icon": "img/off.png",
-		"default_title": "LookFWD",
+		"default_icon": "img/on.png",
+		"default_title": "Producitivity InFocus",
 		"default_popup": "popup.html"
 	},
 	"icons": { 
