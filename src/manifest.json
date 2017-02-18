@@ -4,6 +4,7 @@
 	"version": "0.1",
 	"options_page": "options.html",
 	"web_accessible_resources": ["img/black.png"],
+	"description": "Productivity InFocus will be your buddy looking out for you when you get off task.",
 	"background": {
 		"scripts": ["js/background.js","js/facebook/background.js"]
 	},
