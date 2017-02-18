@@ -49,7 +49,6 @@ chrome.storage.sync.get('key',function(result){
 		description.innerHTML = category + " videos will distract you from focusing!"
 		div.appendChild(description)
 		function closeModal() {
-			console.log(div);
 			div.parentNode.removeChild(div);
 			document.querySelector('video').play();
 			//send storage for # of youtube vids watched here
@@ -60,11 +59,9 @@ chrome.storage.sync.get('key',function(result){
 					//returns 0 if it is not set
 					function parseData(key){
 						var data = result[key];
-						console.log(data);
 						if(data == undefined){
 							data = 0;
 						}
-						console.log(data);
 						return data;
 					}
 					var total = parseInt(result.allTimeCount);
@@ -97,7 +94,6 @@ chrome.storage.sync.get('key',function(result){
 	}
 	function categorySafe(){
 		var container = document.getElementById("watch-description-extras").children[0].children;
-		console.log(container)
 		for(var i = 0; i < container.length; i++){
 			if(container[i].children[0].innerHTML.includes("Category")){
 				container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
