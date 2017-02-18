@@ -1,5 +1,4 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-
     loaded();
     console.log("URL CHANGED: " + request.data.url);
 });
