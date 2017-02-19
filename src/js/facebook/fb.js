@@ -8,7 +8,7 @@ function loaded(){
 		function includeWarningMessage(){
 			var topOfNewsFeed = document.querySelector('[id^="topnews_main_stream"]');
 			if(topOfNewsFeed !== null) {
-		        document.getElementById(topOfNewsFeed.id).style.display = "none";
+		        document.getElementById(topOfNewsFeed.id).style.visibility = "hidden";
 		        var div = createModal();
 		        console.log(div);
 		        var contentArea = document.getElementById('stream_pagelet');
@@ -35,7 +35,7 @@ function loaded(){
 				for(var i = modals.length - 1; i >= 0; i--){
 					modals[i].remove();
 				}
-				document.querySelector('[id^="topnews_main_stream"]').style.display ="block";
+				document.querySelector('[id^="topnews_main_stream"]').style.visibility ="visible";
 			}
 			btn.addEventListener("click", showContent);
 			// creating the header
