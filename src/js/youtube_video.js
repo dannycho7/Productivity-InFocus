@@ -1,3 +1,11 @@
+function isEnabled(key){
+	if(key == "true"){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 function daysInMonth(month,year) {
     return new Date(year, month, 0).getDate();
 }
@@ -104,43 +112,60 @@ chrome.storage.sync.get('key',function(result){
 	}
 	//stops video from playing
 	function stopVideo() {
-		var video = document.querySelector('video');
-		if (video !== null && !(video.paused)) {
-			console.log("Video found and is pausing");
-			//check for category
-			if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
-				video.pause();
-				// creating the modal
-				console.log(categorySafe());
-				includeWarningMessage(categorySafe().toString());
+		chrome.storage.sync.get('key', function(result){
+			if(!isEnabled(result.key)){
+				clearInterval(videostopper);
+				return;
 			}
-			clearInterval(videostopper);
-		}
-		if(video !== null && video.paused){
-			clearInterval(videostopper);
-		}
+			var video = document.querySelector('video');
+			if (video !== null && !(video.paused)) {
+				console.log("Video found and is pausing");
+				//check for category
+				if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
+					video.pause();
+					// creating the modal
+					console.log(categorySafe());
+					includeWarningMessage(categorySafe().toString());
+				}
+				clearInterval(videostopper);
+			}
+			if(video !== null && video.paused){
+				clearInterval(videostopper);
+			}
+		});
 	}
 	//hides comment-section-renderer
 	function hideContent(){
-		var comments = document.getElementById("comment-section-renderer");
-		var commentContainer = document.getElementById("watch-discussion");
-		var commentBlocker = document.createElement('button');
-		function showContent(){
-			comments.style.display = "block";
-			commentBlocker.remove();
-		}
-		commentBlocker.addEventListener('click',showContent);
-		commentBlocker.className = 'comment-blocker';
-		commentBlocker.innerHTML = "Reveal Comments";
-		if(comments){
-			comments.style.display = "none";
-			//removes buttons before adding them
-			removeCommentBlocker();
-			commentContainer.appendChild(commentBlocker);
-			console.log("Display set to none");
-			clearInterval(commenthide);
-			//append an element that prompts user if they want to continue
-		}
+		chrome.storage.sync.get('key', function(result){
+			if(!isEnabled(result.key)){
+				clearInterval(commenthide);
+				return;
+			}
+			var marker = document.getElementById("watch-description-extras");
+			if( marker == null || marker == undefined){
+			}
+			else if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
+				var comments = document.getElementById("comment-section-renderer");
+				var commentContainer = document.getElementById("watch-discussion");
+				var commentBlocker = document.createElement('button');
+				function showContent(){
+					comments.style.display = "block";
+					commentBlocker.remove();
+				}
+				commentBlocker.addEventListener('click',showContent);
+				commentBlocker.className = 'comment-blocker';
+				commentBlocker.innerHTML = "Reveal Comments";
+				if(comments){
+					comments.style.display = "none";
+					//removes buttons before adding them
+					removeCommentBlocker();
+					commentContainer.appendChild(commentBlocker);
+					console.log("Display set to none");
+					clearInterval(commenthide);
+					//append an element that prompts user if they want to continue
+				}
+			}
+		});
 	}
 	if(result.key == "true"){
 		var commenthide = window.setInterval(function(){hideContent();}, 1000);
