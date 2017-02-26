@@ -112,7 +112,13 @@ chrome.storage.sync.get('key',function(result){
 				}
 			}
 		}
-		return container;
+		if((container.toString().includes("Education")) || (container.toString().includes("Science")) && (container.toString().includes("Tech")))
+		{
+			return "safe";
+		}
+		else{
+			return container.toString();
+		}
 	}
 	//stops video from playing
 	function stopVideo() {
@@ -125,11 +131,11 @@ chrome.storage.sync.get('key',function(result){
 			if (video != null && marker !=null && marker != undefined) {
 				console.log("Video found and is attempting to pause");
 				//check for category
-				if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
+				if(categorySafe() != "safe") {
 					video.pause();
 					// creating the modal
 					console.log(categorySafe());
-					includeWarningMessage(categorySafe().toString());
+					includeWarningMessage(categorySafe());
 				}
 				clearInterval(videostopper);
 			}
@@ -144,7 +150,7 @@ chrome.storage.sync.get('key',function(result){
 			var marker = document.getElementById("watch-description-extras");
 			if( marker == null || marker == undefined){
 			}
-			else if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
+			else if(categorySafe() != "safe"){
 				var comments = document.getElementById("comment-section-renderer");
 				var commentContainer = document.getElementById("watch-discussion");
 				var commentBlocker = document.createElement('button');
