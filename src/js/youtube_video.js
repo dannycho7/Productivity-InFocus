@@ -160,7 +160,6 @@ chrome.storage.sync.get('key',function(result){
 					//removes buttons before adding them
 					removeCommentBlocker();
 					commentContainer.appendChild(commentBlocker);
-					console.log("Display set to none");
 					clearInterval(commenthide);
 					//append an element that prompts user if they want to continue
 				}
@@ -180,7 +179,6 @@ chrome.storage.sync.get('key',function(result){
 function removeModal(){
 	var amt = document.getElementsByClassName('video-modal').length;
 	for(var i = amt - 1; i >= 0 ; i--){
-		console.log("removed");
 		document.getElementsByClassName('video-modal')[i].remove();
 	}
 }
