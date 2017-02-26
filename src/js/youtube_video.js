@@ -34,7 +34,7 @@ function formatToday(num){
 function loaded(){
 chrome.storage.sync.get('key',function(result){
 	//remove all modals that exist in the beginning of each video request
-	removeModal();
+	removeModal();	
 	function includeWarningMessage(category){
 		removeModal();
 		var div = createModal(category);
@@ -174,14 +174,16 @@ chrome.storage.sync.get('key',function(result){
 }
 //removes modals that we have manually added
 function removeModal(){
-	for(var i = 0; i < document.getElementsByClassName('video-modal').length;i++){
+	var amt = document.getElementsByClassName('video-modal').length;
+	for(var i = amt - 1; i >= 0 ; i--){
 		console.log("removed");
 		document.getElementsByClassName('video-modal')[i].remove();
 	}
 }
 //removes comment blockers we have manually added
 function removeCommentBlocker(){
-	for(var i = 0; i < document.getElementsByClassName('comment-blocker').length; i++){
+	var amt = document.getElementsByClassName('comment-blocker').length;
+	for(var i = amt - 1 ; i  >= 0 ; i--){
 		document.getElementsByClassName('comment-blocker')[i].remove();
 	}
 }
