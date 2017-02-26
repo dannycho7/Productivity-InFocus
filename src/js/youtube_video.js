@@ -36,6 +36,7 @@ chrome.storage.sync.get('key',function(result){
 	//remove all modals that exist in the beginning of each video request
 	removeModal();
 	function includeWarningMessage(category){
+		removeModal();
 		var div = createModal(category);
 		var node = document.getElementById('movie_player')
 		node.insertBefore(div, node.firstChild);
@@ -115,10 +116,9 @@ chrome.storage.sync.get('key',function(result){
 		chrome.storage.sync.get('key', function(result){
 			if(!isEnabled(result.key)){
 				clearInterval(videostopper);
-				return;
 			}
 			var video = document.querySelector('video');
-			if (video !== null && !(video.paused)) {
+			if (video !== null) {
 				console.log("Video found and is pausing");
 				//check for category
 				if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
@@ -129,9 +129,6 @@ chrome.storage.sync.get('key',function(result){
 				}
 				clearInterval(videostopper);
 			}
-			if(video !== null && video.paused){
-				clearInterval(videostopper);
-			}
 		});
 	}
 	//hides comment-section-renderer
@@ -139,7 +136,6 @@ chrome.storage.sync.get('key',function(result){
 		chrome.storage.sync.get('key', function(result){
 			if(!isEnabled(result.key)){
 				clearInterval(commenthide);
-				return;
 			}
 			var marker = document.getElementById("watch-description-extras");
 			if( marker == null || marker == undefined){
