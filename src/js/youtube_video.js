@@ -108,17 +108,18 @@ chrome.storage.sync.get('key',function(result){
 			for(var i = 0; i < container.length; i++){
 				if(container[i].children[0].innerHTML.includes("Category")){
 					container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
-					break;
+					if((container.toString().includes("Education")) || (container.toString().includes("Science")) && (container.toString().includes("Tech")))
+					{
+						return "safe";
+					}
+					else{
+						return container.toString();
+					}
 				}
 			}
 		}
-		if((container.toString().includes("Education")) || (container.toString().includes("Science")) && (container.toString().includes("Tech")))
-		{
-			return "safe";
-		}
-		else{
-			return container.toString();
-		}
+		return "YouTube";
+		
 	}
 	//stops video from playing
 	function stopVideo() {
