@@ -102,11 +102,14 @@ chrome.storage.sync.get('key',function(result){
 		return div;
 	}
 	function categorySafe(){
-		var container = document.getElementById("watch-description-extras").children[0].children;
-		for(var i = 0; i < container.length; i++){
-			if(container[i].children[0].innerHTML.includes("Category")){
-				container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
-				break;
+		var container = document.getElementById("watch-description-extras");
+		if(container != null || container != undefined){		
+			var container = document.getElementById("watch-description-extras").children[0].children;
+			for(var i = 0; i < container.length; i++){
+				if(container[i].children[0].innerHTML.includes("Category")){
+					container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
+					break;
+				}
 			}
 		}
 		return container;
@@ -118,8 +121,9 @@ chrome.storage.sync.get('key',function(result){
 				clearInterval(videostopper);
 			}
 			var video = document.querySelector('video');
-			if (video !== null) {
-				console.log("Video found and is pausing");
+			var marker = document.getElementById("watch-description-extras");
+			if (video != null && marker !=null && marker != undefined) {
+				console.log("Video found and is attempting to pause");
 				//check for category
 				if(!(categorySafe().toString().includes("Education")) && !(categorySafe().toString().includes("Science & Technology"))){
 					video.pause();
