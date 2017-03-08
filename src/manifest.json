@@ -32,7 +32,7 @@
 	],
 	"browser_action": {
 		"default_icon": "img/on.png",
-		"default_title": "Producitivity InFocus",
+		"default_title": "Productivity InFocus",
 		"default_popup": "popup.html"
 	},
 	"icons": { 
