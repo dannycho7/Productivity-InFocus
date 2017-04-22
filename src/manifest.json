@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Productivity InFocus",
-	"version": "0.6",
+	"version": "0.7",
 	"options_page": "options.html",
 	"web_accessible_resources": ["img/black.png"],
 	"description": "Productivity InFocus will be your buddy looking out for you when you get off task.",
@@ -35,7 +35,7 @@
 		"default_title": "Productivity InFocus",
 		"default_popup": "popup.html"
 	},
-	"icons": { 
-		"128": "img/icon128.png" 
+	"icons": {
+		"128": "img/icon128.png"
     }
 }
