@@ -34,7 +34,7 @@ function formatToday(num){
 function loaded(){
 chrome.storage.sync.get('key',function(result){
 	//remove all modals that exist in the beginning of each video request
-	removeModal();	
+	removeModal();
 	function includeWarningMessage(category){
 		removeModal();
 		var div = createModal(category);
@@ -64,7 +64,7 @@ chrome.storage.sync.get('key',function(result){
 			chrome.storage.sync.get(null,
 				function(result){
 					//ParseData function:
-					//returns the value at the key 
+					//returns the value at the key
 					//returns 0 if it is not set
 					function parseData(key){
 						var data = result[key];
@@ -103,7 +103,7 @@ chrome.storage.sync.get('key',function(result){
 	}
 	function categorySafe(){
 		var container = document.getElementById("watch-description-extras");
-		if(container != null || container != undefined){		
+		if(container != null || container != undefined){
 			var container = document.getElementById("watch-description-extras").children[0].children;
 			for(var i = 0; i < container.length; i++){
 				if(container[i].children[0].innerHTML.includes("Category")){
@@ -119,7 +119,7 @@ chrome.storage.sync.get('key',function(result){
 			}
 		}
 		return "YouTube";
-		
+
 	}
 	//stops video from playing
 	function stopVideo() {
@@ -128,8 +128,7 @@ chrome.storage.sync.get('key',function(result){
 				clearInterval(videostopper);
 			}
 			var video = document.querySelector('video');
-			var marker = document.getElementById("watch-description-extras");
-			if (video != null && marker !=null && marker != undefined) {
+			if (video != null) {
 				console.log("Video found and is attempting to pause");
 				//check for category
 				if(categorySafe() != "safe") {
@@ -148,15 +147,21 @@ chrome.storage.sync.get('key',function(result){
 			if(!isEnabled(result.key)){
 				clearInterval(commenthide);
 			}
-			var marker = document.getElementById("watch-description-extras");
-			if( marker == null || marker == undefined){
-			}
-			else if(categorySafe() != "safe"){
+			var video = document.querySelector('video');
+			if(video && categorySafe() != "safe"){
 				var comments = document.getElementById("comment-section-renderer");
+				var commentsNewContainer = document.getElementById("comments");
+				if (commentsNewContainer){
+					var commentsNew = commentsNewContainer.children[0];
+				}
 				var commentContainer = document.getElementById("watch-discussion");
 				var commentBlocker = document.createElement('button');
 				function showContent(){
-					comments.style.display = "block";
+					if(comments) {
+						comments.style.display = "block";
+					} else if (commentsNew) {
+						commentsNew.style.display = "block";
+					}
 					commentBlocker.remove();
 				}
 				commentBlocker.addEventListener('click',showContent);
@@ -169,6 +174,11 @@ chrome.storage.sync.get('key',function(result){
 					commentContainer.appendChild(commentBlocker);
 					clearInterval(commenthide);
 					//append an element that prompts user if they want to continue
+				} else if (commentsNew) {
+					commentsNew.style.display = "none";
+					removeCommentBlocker();
+					commentsNewContainer.appendChild(commentBlocker);
+					clearInterval(commenthide);
 				}
 			}
 		});
@@ -200,4 +210,3 @@ function removeCommentBlocker(){
 
 document.addEventListener("spfdone",loaded);
 document.addEventListener("DOMContentLoaded", loaded);
-
