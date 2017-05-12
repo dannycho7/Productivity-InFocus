@@ -25,7 +25,6 @@ function thumbnail(){
 	});
 }
 
-document.addEventListener("spfdone",thumbnail);
 document.addEventListener("DOMContentLoaded", function(){
 	thumbnail();
 	setInterval(thumbnail,2000);
