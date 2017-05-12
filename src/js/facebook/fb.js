@@ -1,6 +1,5 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     loaded();
-    console.log("URL CHANGED: " + request.data.url);
 });
 
 function loaded(){
@@ -46,7 +45,7 @@ function loaded(){
 			description.className = 'quote';
 			description.innerHTML = generateQuote();
 			div.appendChild(description)
-			
+
 			var t = document.createTextNode("Proceed");
 			btn.appendChild(t);
 
