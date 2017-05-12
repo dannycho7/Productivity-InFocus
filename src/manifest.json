@@ -1,12 +1,12 @@
 {
 	"manifest_version": 2,
 	"name": "Productivity InFocus",
-	"version": "0.7",
+	"version": "1.0",
 	"options_page": "options.html",
 	"web_accessible_resources": ["img/black.png"],
 	"description": "Productivity InFocus will be your buddy looking out for you when you get off task.",
 	"background": {
-		"scripts": ["js/background.js","js/facebook/background.js"]
+		"scripts": ["js/background.js"]
 	},
 	"permissions": [
 		"storage",
@@ -22,7 +22,7 @@
 		{
 			"matches": ["*://*.facebook.com/*"],
 			"js": ["js/quote.js","js/facebook/fb.js"],
-      		"css": ["css/fbmodal.css"]
+      "css": ["css/fbmodal.css"]
 		},
 		{
 			"matches": ["<all_urls>"],
