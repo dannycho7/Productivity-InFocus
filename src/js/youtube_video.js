@@ -1,3 +1,7 @@
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
+	loaded();
+});
+
 function isEnabled(key){
 	if(key == "true"){
 		return true;
@@ -206,7 +210,3 @@ function removeCommentBlocker(){
 		document.getElementsByClassName('comment-blocker')[i].remove();
 	}
 }
-
-
-document.addEventListener("spfdone",loaded);
-document.addEventListener("DOMContentLoaded", loaded);
