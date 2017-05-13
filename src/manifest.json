@@ -21,13 +21,8 @@
 		},
 		{
 			"matches": ["*://*.facebook.com/*"],
-			"js": ["js/quote.js","js/facebook/fb.js"],
+			"js": ["js/api/quote.js","js/fb.js"],
       "css": ["css/fbmodal.css"]
-		},
-		{
-			"matches": ["<all_urls>"],
-			"exclude_matches": ["*://*/_/chrome/newtab*"],
-			"js": ["js/api/url_cdn.js","js/url.js"]
 		}
 	],
 	"browser_action": {
