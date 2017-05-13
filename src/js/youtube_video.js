@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-		// console.log("received message");
+		console.log("received message");
 		removeModal();
 		removeCommentBlocker();
 		loaded();
@@ -110,7 +110,8 @@ function stopVideo() {
 				// creating the modal
 				includeWarningMessage(categorySafe());
 			}
-			if(video.paused) {
+			if(video.paused == true) {
+				console.log(video, video.paused);
 				clearInterval(videostopper);
 			}
 		}

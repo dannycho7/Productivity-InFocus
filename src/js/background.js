@@ -1,12 +1,12 @@
 //Listen for when a Tab changes state
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
     if(changeInfo && changeInfo.status == "complete"){
-      console.log("Tab updated: " + tab.url);
       if(tab.url.includes("facebook") || tab.url.includes("youtube")){
+        console.log("Tab updated: " + tab.url);
         chrome.storage.sync.get(null, function(result){
           if(result.key == "true"){
             chrome.tabs.sendMessage(tabId, {data: tab}, function(response) {
-             		console.log(response);
+             		// console.log(response);
          	  });
           }
         });
