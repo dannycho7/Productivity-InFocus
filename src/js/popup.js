@@ -3,18 +3,21 @@
 var toggler = document.getElementById("toggler");
 var ontxt = "Pause Productivity Mode";
 var offtxt = "Unpause Productivity Mode";
+
 function on(){
 	if(toggler){
-		toggler.innerHTML = ontxt; //Text to displayed after LookFWD has been turned on
+		toggler.innerHTML = ontxt; //Text to displayed after it has been turned on
 		chrome.browserAction.setIcon({path:"/img/on.png"});
 	}
 }
+
 function off(){
 	if(toggler){
 		toggler.innerHTML = offtxt;//Text to be displayed after LookFWD has been turned off
 		chrome.browserAction.setIcon({path:"/img/off.png"});
 	}
 }
+
 function toggle(){
 	chrome.storage.sync.get('key',function(result){
 		console.log("toggle function key val is " + result.key);
@@ -36,8 +39,10 @@ function toggle(){
 		}
 	});
 }
+
 document.addEventListener("DOMContentLoaded", function(){
-	chrome.storage.sync.get(null,function(result){
+	// Used to update popup info based on chrome storage key settings
+	chrome.storage.sync.get(null, function(result){
 		if(result.key == "true"){
 			on();
 		}
@@ -46,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	});
 });
+
 if(toggler){
 	toggler.addEventListener('click',function(){
 		toggle();
