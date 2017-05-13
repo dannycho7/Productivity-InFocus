@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-		console.log("received message");
+		// console.log("received message");
 		removeModal();
 		removeCommentBlocker();
 		loaded();
@@ -104,16 +104,13 @@ function stopVideo() {
 		});
 		var video = document.querySelector('video');
 		if (video != null) {
-		console.log("Video found and is attempting to pause");
 			//check for category
 			if(categorySafe() != "safe") {
 				video.pause();
 				// creating the modal
-				console.log(categorySafe());
 				includeWarningMessage(categorySafe());
 			}
 			if(video.paused) {
-				console.log("CLearing interval because video is paused:", video.paused);
 				clearInterval(videostopper);
 			}
 		}
