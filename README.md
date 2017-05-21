@@ -22,10 +22,12 @@ We can prevent procrastination together! <br/>
 ## General Functionalities: <br/>
 1. Reminds and alerts users when they're off task 
 
-
 2. Blocks out thumbnails/clickbait along with preventing seamless youtube video streaming and facebook news feed scroll
+
 3. Scrapes Youtube and Facebook to hide comments on both platforms and videos on youtube based on categories
+
 4. Provides inspirational quotes throughout the blocking of information
+
 5. Provides analytics data visualization based on user activity via Chrome.storage API and Chart.js API
 
 Technologies used: JavaScript, HTML/CSS, Chart.js API, and various Chrome extension APIs
