@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
 @font-face {
     font-family: 'Lato',sans-serif;
     src: url(fonts/Lato-Regular.ttf) format('truetype');
@@ -8,7 +7,7 @@
 	margin: 0;
 	position: absolute;
 	font-size: 40px;
-	padding: 10px 3px;
+	padding: 10px 5px;
 	background-color: white;
 	border-radius: 2px;
 	z-index: 11;
@@ -16,6 +15,7 @@
 }
 .modal h1{
 	font-weight: bold;
+	color: rgb(51,51,51);
 	font-size: 34px;
 	margin-bottom: 40px;
 }

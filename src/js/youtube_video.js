@@ -48,9 +48,7 @@ function closeModal(modal) {
 	modal.parentNode.removeChild(modal); // removes the modal from the DOM
 	document.querySelector('video').play();
 	//send storage for # of youtube vids watched here
-	chrome.storage.sync.get(null,
-		function(result){
-
+	chrome.storage.sync.get(null, function(result){
 			var total = parseInt(result.allTimeCount);
 			var current = parseData(formatToday(0));
 			if(total == undefined){
