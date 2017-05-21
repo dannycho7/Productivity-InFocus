@@ -36,17 +36,17 @@
 	color: #FF4040;
 }
 .comment-blocker{
-  width: 100%;
-  border: 1px solid #d3d3d3;
-  padding: 10px 0;
+	width: 100%;
+	border: 1px solid #d3d3d3;
+	padding: 10px 0;
 	background-color: #d3d3d3;
 	border-radius: 1px;
 	padding: 10px 0;
 	background-image: -moz-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
-  background-image: -ms-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
-  background-image: -o-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
-  background-image: -webkit-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
-  background-image: linear-gradient(to top,#fcfcfc 0,#f8f8f8 100%);
+	background-image: -ms-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
+	background-image: -o-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
+	background-image: -webkit-linear-gradient(bottom,#fcfcfc 0,#f8f8f8 100%);
+	background-image: linear-gradient(to top,#fcfcfc 0,#f8f8f8 100%);
 }
 .comment-blocker:hover{
 	cursor: pointer;
