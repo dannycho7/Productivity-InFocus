@@ -1,29 +1,31 @@
 # Productivity InFocus - Preventing you from yourself
 
 ## Productivity InFocus is a chrome extension that prevents procrastination!
-There I was, walking to my desk and ready to get some work done. I go on my laptop and open up tabs to facebook, youtube and gmail. The usual suspects. You can  predict what happened next.
+This chrome extension helps solve procrastination by sending you reminders when you're off task.<br/>
 
-We've all been there. Two days before a deadline, you motivate yourself to work the rest of the day. And somehow you end up watching DIY cooking videos, one after another and scrolling endlessly through your Facebook newsfeed. As students, we know this situation all too well.
+-- Recently updated for the new youtube -- <br/>
 
-LookFWD was originally inspired by my efforts to prevent this type of procrastination. At the start of the winter break, I dedicated myself to logging out of Facebook prior to closing the browser, and before I knew it I was only logging back on to Facebook once or twice a day to check messages. <br/>
+We've all been there. Two days before a deadline, you motivate yourself to work the rest of the day. And somehow you end up watching DIY cooking videos, one after another and scrolling endlessly through your Facebook newsfeed. As students, we know this situation all too well. <br/>
 
-It seems that periodical reminders to stay on task can keep you in focus. By consistently asking you if watching an Entertainment video is the best choice 12 hours before a midterm, LookFWD aims to reduce procrastination, even if by a little bit. LookFWD will give warnings based on the category and metadata of the content being loaded by the browser and provide analytics based on the amount of time spent on non-educational videos<br/>
+Productivity InFocus will be your buddy looking out for you when you get off task. It reminds you before you start watching Youtube videos that aren’t educational related or when you’re on Facebook. <br/>
 
-Productivity InFocus will be your buddy looking out for you when you get off task. It reminds you before you start watching Youtube videos that aren’t educational related or when you’re on Facebook.<br/>
+How it works: <br/>
 
-It works like this. We temporarily block the content you’re about to view as a reminder. You can then choose to view the content or go back to staying on task. Keep in mind you’re not blocked from using these sites, Productivity Infocus is just here to keep you from watching DIY cooking videos at 3am or whatever distraction you prefer.<br/>
+1. If you go on YouTube, there will no longer be thumbnails! Content creators will no longer be able to take control of your study time with clickbait and flashy images. 
 
-Not only that, but we remove the stupid thumbnails on Youtube that content creators use to distract you! You can now stay focused even if you’re on Youtube.<br/>
+2. And if our thumbnail remover wasn't already useful enough and you fall into the evil trap of watching a video, you will be prompted with a reminder - "Do you really have time for this?" before you begin watching. Keep in mind, we won't stop you from watching educational related videos though. Unlike other tools, we're not taking Facebook and Youtube away from you. (that would be horrific). We just want to 'guilt-trip' you when you want to be plugged in. 
 
-At the end of the day, you can view your progress in a nice visual chart and keep yourself in focus.<br/>
+3. We will hide Facebook News Feed and give you the option of proceeding to view newsfeed, or get back on task. 
+By giving you these friendly reminders, Productivity InFocus will enable you to focus on the things you should be focusing on. It's time to say goodbye to procrastination and look forward to reaping the benefits of staying on task. 
 
-We can prevent procrastination together!
+We can prevent procrastination together! <br/>
 
 ## General Functionalities: <br/>
-1. Reminds and alerts users when they're off task <br/>
-2. Blocks out thumbnails/clickbait along with preventing seamless youtube video streaming and facebook news feed scroll<br/>
-3. Scrapes Youtube and Facebook to hide comments on both platforms and videos on youtube based on categories<br/>
-4. Provides inspirational quotes throughout the blocking of information<br/>
-5. Provides analytics data visualization based on user activity via Chrome.storage API and Chart.js API<br/>
+1. Reminds and alerts users when they're off task 
+2. Blocks out thumbnails/clickbait along with preventing seamless youtube video streaming and facebook news feed scroll
+3. Scrapes Youtube and Facebook to hide comments on both platforms and videos on youtube based on categories
+4. Provides inspirational quotes throughout the blocking of information
+5. Provides analytics data visualization based on user activity via Chrome.storage API and Chart.js API
 
-Technologies used: JavaScript, HTML/CSS, Chart.js API, Youtube SPF API, URI.js API, and various Chrome extension APIs
+Technologies used: JavaScript, HTML/CSS, Chart.js API, and various Chrome extension APIs
+No longer using: YouTube SPF API (Deprecated on new youtube) and URI.js API
