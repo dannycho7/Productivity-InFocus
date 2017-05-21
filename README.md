@@ -1,6 +1,5 @@
 # Productivity InFocus - Preventing you from yourself
 
-## Productivity InFocus is a chrome extension that prevents procrastination!
 This chrome extension helps solve procrastination by sending you reminders when you're off task.<br/>
 
 -- Recently updated for the new youtube -- <br/>
@@ -22,6 +21,8 @@ We can prevent procrastination together! <br/>
 
 ## General Functionalities: <br/>
 1. Reminds and alerts users when they're off task 
+
+
 2. Blocks out thumbnails/clickbait along with preventing seamless youtube video streaming and facebook news feed scroll
 3. Scrapes Youtube and Facebook to hide comments on both platforms and videos on youtube based on categories
 4. Provides inspirational quotes throughout the blocking of information
