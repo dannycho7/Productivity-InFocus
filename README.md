@@ -30,6 +30,5 @@ We can prevent procrastination together! <br/>
 
 5. Provides analytics data visualization based on user activity via Chrome.storage API and Chart.js API
 
-Technologies used: JavaScript, HTML/CSS, Chart.js API, and various Chrome extension APIs
-
+Technologies used: JavaScript, HTML/CSS, Chart.js API, and various Chrome extension APIs <br/>
 No longer using: YouTube SPF API (Deprecated on new youtube) and URI.js API
