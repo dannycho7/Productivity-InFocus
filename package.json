@@ -1,0 +1,23 @@
+{
+  "name": "Productivity-InFocus",
+  "version": "1.0.0",
+  "description": "This chrome extension helps solve procrastination by sending you reminders when you're off task.<br/>",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannycho7/Productivity-InFocus.git"
+  },
+  "keywords": [],
+  "author": "Danny Cho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannycho7/Productivity-InFocus/issues"
+  },
+  "homepage": "https://chrome.google.com/webstore/detail/productivity-infocus/cojpnjecmfacepoflhodpnacpfhipbjf",
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  }
+}
