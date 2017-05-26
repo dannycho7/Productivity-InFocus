@@ -7,17 +7,17 @@ function changeImage(thumb){
 }
 
 function thumbnail(){
-	chrome.storage.sync.get('key',function(result){
+	chrome.storage.sync.get("key",function(result){
 		if(result.key == "true"){
-			var thumbnail = document.getElementsByClassName('yt-thumb-simple');
+			var thumbnail = document.getElementsByClassName("yt-thumb-simple");
 			if(thumbnail.length > 0){
 				changeImage(thumbnail);
 			}
-			var thumbVid = document.getElementsByClassName('yt-uix-simple-thumb-wrap');
+			var thumbVid = document.getElementsByClassName("yt-uix-simple-thumb-wrap");
 			if(thumbVid.length > 0){
 				changeImage(thumbVid);
 			}
-			var thumbnailNew = document.getElementsByClassName('ytd-thumbnail');
+			var thumbnailNew = document.getElementsByClassName("ytd-thumbnail");
 			if(thumbnailNew.length > 0){
 				changeImage(thumbnailNew);
 			}

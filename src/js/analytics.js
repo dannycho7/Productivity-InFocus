@@ -1,5 +1,5 @@
 function daysInMonth(month,year) {
-    return new Date(year, month, 0).getDate();
+	return new Date(year, month, 0).getDate();
 }
 //num is a parameter that should be set to 0 if you want today's date
 //setting it higher will go back num number of days
@@ -38,40 +38,36 @@ function addChart(){
 			//returns 0 if it is not set
 			function parseData(key){
 				var data = result[key];
-				console.log(data);
 				if(data == undefined){
 					data = 0;
 				}
-				console.log(data);
 				return data;
 			}
-			console.log(formatToday(0));
 			var date = new Date();
-			console.log(getStringDay(date.getDay()));
 			var numday = date.getDay();
 			//chart stuff
 			var ctx = document.getElementById("myChart");
 			var count = result.videoCount;
 			var myChart = new Chart(ctx, {
-				type: 'line',
+				type: "line",
 				data: {
-				labels: [getStringDay(numday-4), getStringDay(numday-3), getStringDay(numday-2), getStringDay(numday-1), getStringDay(numday)],
-				datasets: [{
-				label: '# of Videos watched',
-				data: [parseData(formatToday(4)),parseData(formatToday(3)), parseData(formatToday(2)), parseData(formatToday(1)),parseData(formatToday(0))],
-				backgroundColor: "rgba(218,127,127,0.4)",
-				borderColor: "rgba(138,28,28,0.5)",
-				pointBackgroundColor: "rgb(138,28,28)"
-				}]
+					labels: [getStringDay(numday-4), getStringDay(numday-3), getStringDay(numday-2), getStringDay(numday-1), getStringDay(numday)],
+					datasets: [{
+						label: "# of Videos watched",
+						data: [parseData(formatToday(4)),parseData(formatToday(3)), parseData(formatToday(2)), parseData(formatToday(1)),parseData(formatToday(0))],
+						backgroundColor: "rgba(218,127,127,0.4)",
+						borderColor: "rgba(138,28,28,0.5)",
+						pointBackgroundColor: "rgb(138,28,28)"
+					}]
 				},
 				options: {
-				scales: {
-				yAxes: [{
-				ticks: {
-				beginAtZero:true
-				}
-				}]
-				}
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero:true
+							}
+						}]
+					}
 				}
 			}); // end myChart
 
@@ -79,45 +75,45 @@ function addChart(){
 			var radarData = {
 				labels: [getStringDay(numday-6), getStringDay(numday-5), getStringDay(numday-4), getStringDay(numday-3), getStringDay(numday-2), getStringDay(numday-1), getStringDay(numday)],
 				datasets: [
-				{
-					label: "Current week ",
-					fillColor : "rgba(220,220,220,0.5)",
-					strokeColor : "rgba(220,220,220,1)",
-					backgroundColor: "rgba(80, 244, 66, 0.4)",
-					pointBackgroundColor: "rgba(66, 244, 95, 0.8)",
-					borderColor: "rgba(80, 244, 66, 0.6)",
-					pointHoverBackgroundColor: "rgba(66, 244, 95, 0.8)",
-					pointHoverBorderColor: "rgba(255, 255, 255, 1)",
-					data: [parseData(formatToday(6)), parseData(formatToday(5)), parseData(formatToday(4)), parseData(formatToday(3)), parseData(formatToday(2)), parseData(formatToday(1)), parseData(formatToday(0))]
-				},
-				{
-					label: "Last week",
-					fillColor : "rgba(151,187,205,0.5)",
-					strokeColor : "rgba(151,187,205,1)",
-					backgroundColor: "rgba(66, 122, 244 , 0.4)",
-					pointBackgroundColor: "rgba(66, 134, 244, 0.8)",
-					borderColor: "rgba(66, 122, 244 , 0.6)",
-					pointHoverBackgroundColor: "rgba(66, 134, 244, 0.8)",
-					pointHoverBorderColor: "rgba(255, 255, 255, 1)",
-					data: [parseData(formatToday(13)), parseData(formatToday(12)), parseData(formatToday(11)), parseData(formatToday(10)), parseData(formatToday(9)), parseData(formatToday(8)), parseData(formatToday(7))]
-				}
+					{
+						label: "Current week ",
+						fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,1)",
+						backgroundColor: "rgba(80, 244, 66, 0.4)",
+						pointBackgroundColor: "rgba(66, 244, 95, 0.8)",
+						borderColor: "rgba(80, 244, 66, 0.6)",
+						pointHoverBackgroundColor: "rgba(66, 244, 95, 0.8)",
+						pointHoverBorderColor: "rgba(255, 255, 255, 1)",
+						data: [parseData(formatToday(6)), parseData(formatToday(5)), parseData(formatToday(4)), parseData(formatToday(3)), parseData(formatToday(2)), parseData(formatToday(1)), parseData(formatToday(0))]
+					},
+					{
+						label: "Last week",
+						fillColor : "rgba(151,187,205,0.5)",
+						strokeColor : "rgba(151,187,205,1)",
+						backgroundColor: "rgba(66, 122, 244 , 0.4)",
+						pointBackgroundColor: "rgba(66, 134, 244, 0.8)",
+						borderColor: "rgba(66, 122, 244 , 0.6)",
+						pointHoverBackgroundColor: "rgba(66, 134, 244, 0.8)",
+						pointHoverBorderColor: "rgba(255, 255, 255, 1)",
+						data: [parseData(formatToday(13)), parseData(formatToday(12)), parseData(formatToday(11)), parseData(formatToday(10)), parseData(formatToday(9)), parseData(formatToday(8)), parseData(formatToday(7))]
+					}
 				]
 			}; // end data
 			var myRadarChart = new Chart(radarCtx, {
 				type: "radar",
 				data: radarData,
 				options: {
-				scale: {
-				reverse: true,
-				ticks: {
-				beginAtZero: true
-				}
-				}
+					scale: {
+						reverse: true,
+						ticks: {
+							beginAtZero: true
+						}
+					}
 				}
 			});
-			}
+		}
 	);
 }
 
-chrome.tabs.onActivated.addListener(function(){addChart();})
+chrome.tabs.onActivated.addListener(function(){addChart();});
 document.addEventListener("DOMContentLoaded", function(){addChart();});

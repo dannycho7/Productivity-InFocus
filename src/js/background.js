@@ -1,21 +1,20 @@
 //Listen for when a Tab changes state
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
-    if(changeInfo && changeInfo.status == "complete"){
-      if(tab.url.includes("facebook") || tab.url.includes("youtube")){
-        console.log("Tab updated: " + tab.url);
-        chrome.storage.sync.get(null, function(result){
-          if(result.key == "true"){
-            chrome.tabs.sendMessage(tabId, {data: tab}, function(response) {
-             		// console.log(response);
-         	  });
-          }
-        });
-      }
-    }
+	if(changeInfo && changeInfo.status == "complete"){
+		if(tab.url.includes("facebook") || tab.url.includes("youtube")){
+			chrome.storage.sync.get(null, function(result){
+				if(result.key == "true"){
+					chrome.tabs.sendMessage(tabId, {data: tab}, function(response) {
+						// console.log(response);
+					});
+				}
+			});
+		}
+	}
 });
 
 function daysInMonth(month,year) {
-    return new Date(year, month, 0).getDate();
+	return new Date(year, month, 0).getDate();
 }
 
 //num is a parameter that should be set to 0 if you want today's date
@@ -45,7 +44,7 @@ function formatToday(num){
 chrome.storage.sync.get(null, function(result){
 	if(result.key == undefined){
 		//default option on first download
-		chrome.storage.sync.set({ 'key': "true" }, function(){ chrome.browserAction.setIcon({path:"/img/on.png"}); } );
+		chrome.storage.sync.set({ "key": "true" }, function(){ chrome.browserAction.setIcon({path:"/img/on.png"}); } );
 	}
 	else if(result.key == "true"){
 		chrome.browserAction.setIcon({path:"/img/on.png"});
@@ -54,13 +53,13 @@ chrome.storage.sync.get(null, function(result){
 		chrome.browserAction.setIcon({path:"/img/off.png"});
 	}
 	if(result.allTimeCount == undefined){
-		chrome.storage.sync.set({'allTimeCount':'0',},function(){ console.log("setallTimeCount"); })
+		chrome.storage.sync.set({"allTimeCount":"0",},function(){ /* console.log("setallTimeCount"); */ });
 	}
 	//setting default videoCount
 	if(result[formatToday(0)] == undefined){
 		var obj = {};
 		obj[formatToday(0)] = 0;
-		console.log(obj[formatToday(0)]);
-		chrome.storage.sync.set(obj,function(){ console.log("set vidCount"); });
+		// console.log(obj[formatToday(0)]);
+		chrome.storage.sync.set(obj,function(){ /* console.log("set vidCount"); */ });
 	}
 });

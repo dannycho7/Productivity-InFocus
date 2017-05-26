@@ -19,22 +19,22 @@ function off(){
 }
 
 function toggle(){
-	chrome.storage.sync.get('key',function(result){
-		console.log("toggle function key val is " + result.key);
+	chrome.storage.sync.get("key",function(result){
+		// console.log("toggle function key val is " + result.key);
 		if(result.key == "true"){
 			chrome.storage.sync.set({
-				'key': "false"
-				},function(){
-					off();
-				}
+				"key": "false"
+			},function(){
+				off();
+			}
 			);
 		}
 		else{
 			chrome.storage.sync.set({
-				'key': "true"
-				},function(){
-					on();
-				}
+				"key": "true"
+			},function(){
+				on();
+			}
 			);
 		}
 	});
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 if(toggler){
-	toggler.addEventListener('click',function(){
+	toggler.addEventListener("click",function(){
 		toggle();
 	});
 }
