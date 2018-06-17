@@ -1,5 +1,4 @@
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-	// console.log("received message");
+chrome.runtime.onMessage.addListener(function() {
 	removeModal();
 	removeCommentBlocker();
 	loaded();
@@ -8,7 +7,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 function loaded(){
 	//remove all modals that exist in the beginning of each video request
 	removeModal();
-	hideContent();
+	window.setInterval(hideContent, 1000);
 	stopVideo();
 }
 
@@ -48,36 +47,24 @@ function closeModal(modal) {
 	modal.parentNode.removeChild(modal); // removes the modal from the DOM
 	document.querySelector("video").play();
 	//send storage for # of youtube vids watched here
-	chrome.storage.sync.get(null, function(result){
-		currentDayString = formatToday(0);
+	chrome.storage.sync.get(null, function(result) {
+		var currentDayString = formatToday(0);
 		var total = parseInt(result["allTimeCount"]);
 		var current = result[currentDayString];
-		if(total == undefined){
-			total = 0;
-		}
-		else{
-			total++;
-		}
-		if(current == undefined){
-			current = 1;
-		}
-		else{
-			current++;
-		}
+		total = total ? total + 1 : 1;
+		current = current ? current + 1 : 1;
 
-		videoCountKeys = {};
+		var videoCountKeys = {};
 		videoCountKeys[currentDayString] = current;
 		videoCountKeys["allTimeCount"] = total;
-
 		chrome.storage.sync.set(videoCountKeys);
-	}
-	);
+	});
 }
 
 function categorySafe(){
 	var container = document.getElementById("watch-description-extras");
 	if(container != null || container != undefined){
-		var container = document.getElementById("watch-description-extras").children[0].children;
+		container = document.getElementById("watch-description-extras").children[0].children;
 		for(var i = 0; i < container.length; i++){
 			if(container[i].children[0].innerHTML.includes("Category")){
 				container = document.getElementById("watch-description-extras").children[0].children[i].children[1].children[0].children[0].innerHTML;
@@ -92,7 +79,6 @@ function categorySafe(){
 		}
 	}
 	return "YouTube";
-
 }
 
 //stops video from playing
@@ -122,41 +108,38 @@ function stopVideo() {
 
 //hides comment-section-renderer
 function hideContent(){
-	var commenthide = window.setInterval(function(){
-		chrome.storage.sync.get("key", function(result){
-			if(result.key != "true"){
-				clearInterval(commenthide);
-			}
-		});
-		var video = document.querySelector("video");
-		if(video && categorySafe() != "safe"){
-			var comments = document.getElementById("comment-section-renderer");
-			var commentsNewContainer = document.getElementById("comments");
-			if (commentsNewContainer){
-				var commentsNew = commentsNewContainer.children[0];
-			}
-			var commentContainer = document.getElementById("watch-discussion");
-			var commentBlocker = document.createElement("button");
-
-			commentBlocker.addEventListener("click", function(){ showContent(comments, commentsNew, commentBlocker); });
-			commentBlocker.className = "comment-blocker";
-			commentBlocker.innerHTML = "Reveal Comments";
-			if(comments){
-				comments.style.display = "none";
-				//removes buttons before adding them
-				removeCommentBlocker();
-				commentContainer.appendChild(commentBlocker);
-				clearInterval(commenthide);
-				//append an element that prompts user if they want to continue
-			} else if (commentsNew) {
-				commentsNew.style.display = "none";
-				removeCommentBlocker();
-				commentsNewContainer.appendChild(commentBlocker);
-				clearInterval(commenthide);
-			}
+	chrome.storage.sync.get("key", function(result){
+		if(result.key != "true"){
+			clearInterval(commenthide);
 		}
-	}, 1000);
+	});
+	var video = document.querySelector("video");
+	if(video && categorySafe() != "safe"){
+		var comments = document.getElementById("comment-section-renderer");
+		var commentsNewContainer = document.getElementById("comments");
+		if (commentsNewContainer){
+			var commentsNew = commentsNewContainer.children[0];
+		}
+		var commentContainer = document.getElementById("watch-discussion");
+		var commentBlocker = document.createElement("button");
 
+		commentBlocker.addEventListener("click", function(){ showContent(comments, commentsNew, commentBlocker); });
+		commentBlocker.className = "comment-blocker";
+		commentBlocker.innerHTML = "Reveal Comments";
+		if(comments){
+			comments.style.display = "none";
+			//removes buttons before adding them
+			removeCommentBlocker();
+			commentContainer.appendChild(commentBlocker);
+			clearInterval(commenthide);
+			//append an element that prompts user if they want to continue
+		} else if (commentsNew) {
+			commentsNew.style.display = "none";
+			removeCommentBlocker();
+			commentsNewContainer.appendChild(commentBlocker);
+			clearInterval(commenthide);
+		}
+	}
 }
 
 //removes modals that we have manually added
@@ -207,16 +190,4 @@ function formatToday(num){
 		}
 	}
 	return "" + year + month + day;
-}
-
-//ParseData function:
-//returns the value at the key
-//returns 0 if it is not set
-//result object is the result from chrome storage
-function parseData(result, key){
-	var data = result[key];
-	if(data == undefined){
-		data = 0;
-	}
-	return data;
 }
