@@ -115,5 +115,5 @@ function addChart(){
 	);
 }
 
-chrome.tabs.onActivated.addListener(function(){addChart();});
-document.addEventListener("DOMContentLoaded", function(){addChart();});
+chrome.tabs.onActivated.addListener(drawChart);
+document.addEventListener("DOMContentLoaded", drawChart);

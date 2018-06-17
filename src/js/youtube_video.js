@@ -49,8 +49,9 @@ function closeModal(modal) {
 	document.querySelector("video").play();
 	//send storage for # of youtube vids watched here
 	chrome.storage.sync.get(null, function(result){
-		var total = parseInt(result.allTimeCount);
-		var current = parseData(formatToday(0));
+		currentDayString = formatToday(0);
+		var total = parseInt(result["allTimeCount"]);
+		var current = result[currentDayString];
 		if(total == undefined){
 			total = 0;
 		}
@@ -63,10 +64,12 @@ function closeModal(modal) {
 		else{
 			current++;
 		}
-		var obj = {};
-		obj[formatToday(0)] = current;
-		obj["allTimeCount"] = total;
-		chrome.storage.sync.set(obj,function(){ /* console.log("incremented count"); */ });
+
+		videoCountKeys = {};
+		videoCountKeys[currentDayString] = current;
+		videoCountKeys["allTimeCount"] = total;
+
+		chrome.storage.sync.set(videoCountKeys);
 	}
 	);
 }
